@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>AQI</title>
+    <style>
+        * {
+            margin: 0;
+            box-sizing: border-box;
+            font-family: "Bitstream Vera Sans Mono", Monaco, "Courier New", Courier, monospace;
+        }
+
+        .nav {
+            text-decoration: none;
+            color: black;
+        }
+
+        #main {
+            text-align: center;
+            padding-top: 100px;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+        }
+
+        input[type='text'] {
+            width: 30%;
+            margin-bottom: 10px;
+            padding: 10px;
+            border: 2px solid black;
+        }
+
+        input[type='submit'] {
+            width: 30%;
+            padding: 5px;
+            background: black;
+            color: white;
+            text-transform: uppercase;
+        }
+        form {
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+<div id="main">
+    <div class="nav">
+    <a href="/" style="text-decoration: none;color = black"><h1>Feedback</h1></a>
+    </div>
+    <form method="post" action = "">
+    {% csrf_token %}
+        <div>
+            <label for="Name"></label>
+            <input type="text" id="name"  placeholder="Name..." name="name"/>
+        </div>
+        <div>
+            <label for="Your Experience"></label>
+            <input type="text" id="exp"  placeholder="Experience..." name="exp"/>
+        </div>
+        <div>
+            <label for="Any Suggestions"></label>
+            <input type="text" id="any"  placeholder="Suggestion..." name="any"/>
+        </div>
+        <div>
+            <label for="Rating"></label>
+            <input type="text" id="rate"  placeholder="Please rate our project..." name="rate"/>
+        </div>
+        <input type="submit" value="Submit"/ >
+    </form>
+</div>
+
+</body>
+</html>

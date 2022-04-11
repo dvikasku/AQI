@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>AQI</title>
+    <style>
+        * {
+            margin: 0;
+            box-sizing: border-box;
+            font-family: "Bitstream Vera Sans Mono", Monaco, "Courier New", Courier, monospace;
+        }
+
+        .nav {
+            text-decoration: none;
+            color: black;
+        }
+
+        #main {
+            text-align: center;
+            padding-top: 100px;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+        }
+
+        input[type='text'] {
+            width: 30%;
+            margin-bottom: 10px;
+            padding: 10px;
+            border: 2px solid black;
+        }
+
+        input[type='submit'] {
+            width: 30%;
+            padding: 5px;
+            background: black;
+            color: white;
+            text-transform: uppercase;
+        }
+        form {
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+<div id="main">
+    <div class="nav">
+    <a href="/" style="text-decoration: none;color = black"><h1>Find the Air Quality</h1></a>
+    </div>
+    <form method="post" action = "">
+    {% csrf_token %}
+        <div>
+            <label for="pm2.5"></label>
+            <input type="text" id="pm2.5"  placeholder="PM2.5..." name="pm2.5"/>
+        </div>
+        <div>
+            <label for="pm10"></label>
+            <input type="text" id="pm10"  placeholder="PM10..." name="pm10"/>
+        </div>
+        <div>
+            <label for="no2"></label>
+            <input type="text" id="no2"  placeholder="NO2..." name="no2"/>
+        </div>
+        <div>
+            <label for="co2"></label>
+            <input type="text" id="co2"  placeholder="CO2..." name="co2"/>
+        </div>
+        <div>
+            <label for="so2"></label>
+            <input type="text" id="so2"  placeholder="SO2..." name="so2"/>
+        </div>
+        <input type="submit" value="Submit"/>
+    </form>
+    <div>
+    <a href = "feedback/">Feedback</a>
+    </div>
+    {% if ans %}
+        <h3>Air Quality Index is :- {{ans}}</h3>
+        <h3>Air Quality :-</h3>
+        <h3>GOOD :- 0 TO 50</h3>
+        <h3>Satisfactory :- 51 TO 100</h3>
+        <h3>Moderate :- 101 TO 200</h3>
+        <h3>Poor :- 201 TO 300</h3>
+        <h3>Very Poor :- 301 TO 400</h3>
+        <h3>Severe :- 400+</h3>
+    {% endif %} 
+</div>
+</body>
+</html>
